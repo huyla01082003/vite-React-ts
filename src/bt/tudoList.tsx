@@ -13,7 +13,7 @@ function TodoList() {
     } catch (error) {
       console.error('Error parsing localStorage:', error);
       return [];
-    }
+    } 
   });
 
   const handleSumit = () => {

@@ -19,7 +19,7 @@ const courses = [ // Corrected spelling: 'courses'
 function TwoWayBinding() {
   const [checkedCourses, setCheckedCourses] = useState([]);
 
-  const handleCheck = (courseId: never) => {
+  const handleCheck = (courseId: number) => {
     const updatedCheckedCourses = [...checkedCourses]; // Create a copy of the state
 
     const index = updatedCheckedCourses.indexOf(courseId);
