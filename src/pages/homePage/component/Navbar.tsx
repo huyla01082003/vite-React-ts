@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import logo from "../assets/logo.svg"
-import { Color } from 'antd/es/color-picker';
 import icon from "../assets/chevron-down.svg"
 const Navbar: React.FC = () => {
   const [active, setActive] = useState<boolean>(false);
