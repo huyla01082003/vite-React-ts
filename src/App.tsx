@@ -1,9 +1,9 @@
-import ReferralCampaign from './pages/homePage/component/ReferralCampaign';
+import HomePage from "./pages/homePage/HomePage";
 
 function App() {
   return (
     <div>
-      <ReferralCampaign/>
+      <HomePage/>
     </div>
     
   );

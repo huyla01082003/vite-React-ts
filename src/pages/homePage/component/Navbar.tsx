@@ -1,8 +1,7 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
-import logo from "../assets/logo.svg"
-import icon from "../assets/chevron-down.svg"
-const Navbar: React.FC = () => {
+import  { useState } from 'react';
+import logo from '../../../assets/logo.png'
+function Navbar() {
   const [active, setActive] = useState<boolean>(false);
   const [showMore, setShowMore] = useState<boolean>(false);
 
@@ -19,11 +18,10 @@ const Navbar: React.FC = () => {
           <a href="#" className="text-gray-700 hover:text-primary">Shop</a>
           <div className="relative">
             <button
-              className="text-orange-600 flex items-center hover:text-primary" 
+              className="text-orange-600 flex items-center hover:text-primary"
               onClick={() => setShowMore(!showMore)}
             >
               More
-              <img src={icon} alt="" />
             </button>
             {showMore && (
               <div className="absolute right-0 mt-2 bg-white shadow-md rounded-md">
@@ -33,25 +31,26 @@ const Navbar: React.FC = () => {
               </div>
             )}
           </div>
-          </div>
-          
-  <div className="flex items-center bg-red-300 rounded-xl">
-  <button
-    className={clsx(  `rounded-xl p-1 cursor-pointer ${active ? 'bg-orange-700' : 'text-white'}`)}
-    onClick={() => setActive(true)}
-  >
-    mainnet
-  </button>
-  <button
-    className={clsx( `rounded-xl p-1 cursor-pointer ${!active ? 'bg-orange-700' : 'text-white'}`)}
-    onClick={() => setActive(false)}
-  >
-    testnet
-  </button>
-</div>
+        </div>
+
+        <div className="flex items-center bg-red-300 rounded-xl">
+          <button
+            className={clsx(`rounded-xl p-1 cursor-pointer ${active ? 'bg-orange-700' : 'text-white'}`)}
+            onClick={() => setActive(true)}
+          >
+            mainnet
+          </button>
+          <button
+            className={clsx(`rounded-xl p-1 cursor-pointer ${!active ? 'bg-orange-700' : 'text-white'}`)}
+            onClick={() => setActive(false)}
+          >
+            testnet
+          </button>
+        </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
+
