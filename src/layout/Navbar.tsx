@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import  { useState } from 'react';
-import logo from '../../../assets/logo.png'
+import logo from '../assets/logo.png'
 function Navbar() {
   const [active, setActive] = useState<boolean>(false);
   const [showMore, setShowMore] = useState<boolean>(false);

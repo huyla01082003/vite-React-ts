@@ -1,11 +1,11 @@
-import HomePage from "./pages/homePage/HomePage";
-
-function App() {
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./common/layout/LayoutApp"; 
+const App: React.FC = () => {
   return (
-    <div>
-      <HomePage/>
-    </div>
-    
+    <Routes>  
+       <Route path="/" element={<HomePage />} />
+    </Routes>
   );
-}
+};
+
 export default App;
