@@ -33,15 +33,15 @@ function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center bg-red-300 rounded-xl">
+        <div className="flex items-center bg-red-300 rounded-xl text-white">
           <button
-            className={clsx(`rounded-xl p-1 cursor-pointer ${active ? 'bg-orange-700' : 'text-white'}`)}
+            className={clsx(`rounded-xl p-1 cursor-pointer ${active ? 'bg-orange-700' : 'text-black'}`)}
             onClick={() => setActive(true)}
           >
             mainnet
           </button>
           <button
-            className={clsx(`rounded-xl p-1 cursor-pointer ${!active ? 'bg-orange-700' : 'text-white'}`)}
+            className={clsx(`rounded-xl p-1 cursor-pointer ${!active ? 'bg-orange-700' : 'text-black'}`)}
             onClick={() => setActive(false)}
           >
             testnet

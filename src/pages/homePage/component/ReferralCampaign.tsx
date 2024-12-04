@@ -19,7 +19,7 @@ const ReferralCampaign: React.FC = () => {
   };
 
   return (
-    <div className="p-10 bg-white shadow-md rounded-lg">
+    <div className=" container mx-auto pt-20">
         <div className='text-center'>
       <h1 className="text-3xl font-bold text-center mb-6">Referral Campaign</h1>
       <p className="text-center text-gray-600 mb-4">Share your referral link to earn extra points</p>
@@ -31,21 +31,23 @@ const ReferralCampaign: React.FC = () => {
         <p className='text-blue-600 underline' > <a href="">Learn More</a></p>
 
         <div className="flex items-center justify-between mb-8">
-  <div className="flex items-center">
-    <input
+
+        <div className="relative w-96">
+  <input
       type="text"
       value={referralCode}
       onChange={handleInputChange}
       placeholder="Enter referral code"
-      className="border border-gray-300 rounded-l-lg px-20 py-2 w-1/9"
-    />
-    <button 
+      className="w-full rounded-full border border-gray-300 px-4 py-2 pr-16 focus:outline-none focus:border-blue-500" // Thêm pr-16 để tạo không gian cho nút
+  />
+  <button
       onClick={handleSubmit}
-      className="bg-blue-500 text-white rounded-r-lg px-4 py-2 hover:bg-blue-600 transition"
-    >
+      className="absolute right-0 top-0 h-full bg-green-500 hover:bg-green-700 text-white font-bold rounded-full px-4 w-28"  
+  >
       Go
-    </button>
-  </div>
+  </button>
+</div>
+
   <button className="bg-orange-600 text-white px-10 py-2 rounded-2xl hover:bg-orange-700 transition ">
     Invite Your Friends
   </button>

@@ -1,8 +1,5 @@
 export enum RouterLink {
-    Login = "/login",
+    Layout = "/layout",
     Home = "/",
-    WALLET = "/WALLET",
-    LEAD = "/Leaderboard",
-    SHOP = "/Shop",
-    NOT_AUTH = "/NotAuth",
+ 
   }
