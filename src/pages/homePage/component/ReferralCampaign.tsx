@@ -19,67 +19,91 @@ const ReferralCampaign: React.FC = () => {
   };
 
   return (
-    <div className=" container mx-auto pt-20">
-        <div className='text-center'>
-      <h1 className="text-3xl font-bold text-center mb-6">Referral Campaign</h1>
+    <div className=" container mx-auto h-[1649px] flex flex-col gap-[60px] pt-[80px] flex-grow">
+
+      <div className='text-center'>
+      <h1 className="text-3xl font-bold text-center mb-6 text-[40px]">Referral Campaign</h1>
       <p className="text-center text-gray-600 mb-4">Share your referral link to earn extra points</p>
         </div>
         
-        <div className="mb-6 p-4 border rounded-lg bg-gray-50">
-        <h3 className="text-xl font-semibold">Connect Your X account</h3>
-        <p className="text-gray-600 mb-2">You need to connect your X account to join Social Task</p>
-        <p className='text-blue-600 underline' > <a href="">Learn More</a></p>
+        <div className="flex h-[200px] border rounded-lg border-custom-pink justify-between p-[24px] bg-white">
 
-        <div className="flex items-center justify-between mb-8">
+          <div className='w-[400px] h-[152px] '>
+          <h3 className="text-xl font-semibold">Connect Your X account</h3>
+        <p className="text-gray-600 pt-[15px] pb-[1px]">You need to connect your X account to join Social Task</p>
+        <p className='text-blue-600 underline pb-[15px]' > <a href="">Learn More</a></p>
+      
+          
+  <div className='flex items-center w-[400px] h-[48px] rounded-[100px] border border-custom-button p-[4px] '>
 
-        <div className="relative w-96">
   <input
       type="text"
       value={referralCode}
       onChange={handleInputChange}
+
       placeholder="Enter referral code"
-      className="w-full rounded-full border border-gray-300 px-4 py-2 pr-16 focus:outline-none focus:border-blue-500" // Thêm pr-16 để tạo không gian cho nút
+      className="w-[292px] h-[40px] p-[8px-12px-8px-12px]  rounded-[100px]" 
   />
   <button
       onClick={handleSubmit}
-      className="absolute right-0 top-0 h-full bg-green-500 hover:bg-green-700 text-white font-bold rounded-full px-4 w-28"  
+      className=" bg-custom-buttonGo text-white rounded-[100px] w-[100px] h-[40px] "  
   >
       Go
   </button>
 </div>
+          </div>
+        
 
-  <button className="bg-orange-600 text-white px-10 py-2 rounded-2xl hover:bg-orange-700 transition ">
+<div >
+ <button className="  bg-custom-orange w-[199px] h-[48px] border-[0.8px] rounded-[100px] mt-[105px] text-white ">
     Invite Your Friends
   </button>
-</div>
-      </div>
-      <table className="min-w-full table-auto border-collapse">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border px-4 py-2">#</th>
-            <th className="border px-4 py-2">Wallet Address</th>
-            <th className="border px-4 py-2">HEART</th>
+</div>  
+    </div>  
+
+
+      <div className='w-[1008px] h-[872px] ] '>
+      <h1 className='text-[24px] font-medium pb-[16px]'>Ivited friends</h1>
+
+      <div className='w-[1008px] h-[828px] bg-white border border-custom-pink rounded-[12px]'>
+        
+
+      <table className="w-[1008px] h-[764px] ">
+        <thead className='border-custom-pink border-b rounded-[12px]'>
+          <tr  >
+            <th className=" "></th>
+            <th className=" ">Wallet Address</th>
+            <th className=" px-4 py-2">HEART</th>
           </tr>
         </thead>
         <tbody>
           {invitedFriends.map(friend => (
-            <tr key={friend.id} className="border-b hover:bg-gray-50">
-              <td className="border px-4 py-2 text-center">{friend.id}</td>
-              <td className="border px-4 py-2">{friend.walletAddress}</td>
-              <td className="border px-4 py-2 text-center">{friend.heartPoints}</td>
+            <tr key={friend.id } className= 'border-b border-custom-pink'>
+              <td className=" px-4 py-2 text-center">{friend.id}</td>
+              <td className=" px-4 py-2 text-center">{friend.walletAddress}</td>
+              <td className=" px-4 py-2 text-center">{friend.heartPoints}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="flex justify-between mt-6">
-        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition">
+
+      <div className="flex justify-end items-center gap-[12px] w-[1008px] h-[64px] pr-5">
+         
+         <p className='flex-grow text-left text-[14px] p-5'>Page 1 of 10</p>
+
+
+        <button className="text-center bg-white border border-custom-pink w-[83px] h-[36px] rounded-[8px]  ">
           Previous
         </button>
-        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition">
+        <button className="text-center bg-white border border-custom-pink  w-[83px] h-[36px] rounded-[8px]  ">
           Next
         </button>
       </div>
+      
+      </div>
+      
     </div>
+      </div>
   );
 };
 

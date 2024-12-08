@@ -5,8 +5,7 @@ export const LayoutApp = () => {
     <div>
          <>
          <Navbar/>
-         <Outlet/>
-        
+          <Outlet/>       
          </>
     </div>
   )
