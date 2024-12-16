@@ -13,7 +13,7 @@ export default {
         'custom-button': '#CDD5DF',
         'custom-buttonGo': '#09AE7D',
         'custom-bg': 'linear-gradient(180deg, #FFFFFF 0%, #EADBD7 100%)',
-
+        'custom-input': '#949494',
         fontFamily:{
           roboto:['Roboto'],
         }

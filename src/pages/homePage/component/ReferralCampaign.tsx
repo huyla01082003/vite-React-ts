@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
+import { useAppDispatch } from '../../../hooks/store';
+import { setOpenModal } from '../../../redux/slice/Modal';
+import { AppButton } from '../../../component/button/AppButton';
 
 const ReferralCampaign: React.FC = () => {
   const [referralCode, setReferralCode] = useState('');
+
   
   const invitedFriends = Array.from({ length: 10 }, (_, index) => ({
     id: index + 1,
     walletAddress: `0xd4e...${index}7b8ec56${index}7e7`,
     heartPoints: '9,153,223',
   }));
+
+  const dispatch = useAppDispatch();
+  const onOpenModal =() =>{
+    dispatch(setOpenModal({isOpenModal: true}))
+  }
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setReferralCode(e.target.value);
@@ -42,7 +52,7 @@ const ReferralCampaign: React.FC = () => {
       onChange={handleInputChange}
 
       placeholder="Enter referral code"
-      className="w-[292px] h-[40px] p-[8px-12px-8px-12px]  rounded-[100px]" 
+      className="w-[292px] h-[40px] p-[8px-12px-8px-12px]  rounded-[100px] pl-2" 
   />
   <button
       onClick={handleSubmit}
@@ -55,9 +65,9 @@ const ReferralCampaign: React.FC = () => {
         
 
 <div >
- <button className="  bg-custom-orange w-[199px] h-[48px] border-[0.8px] rounded-[100px] mt-[105px] text-white ">
+ <AppButton   onClick={onOpenModal} className="  bg-custom-orange w-[199px] h-[48px] border-[0.8px] rounded-[100px] mt-[105px] text-white ">
     Invite Your Friends
-  </button>
+  </AppButton>
 </div>  
     </div>  
 
