@@ -10,8 +10,55 @@ import { Nav } from 'react-bootstrap';
 import footBG4 from '../../../assets/footBG4.svg'
 import footBG2 from '../../../assets/footBG2.svg'
 import footBG3 from '../../../assets/footBG3.svg'
+import { HomeAPI } from '../../../services/homeService';
+import { useEffect, useState } from "react";
+import useApi from '../../../hooks/useApi'
+import { useAppDispatch } from '../../../hooks/store';
+import { SocialEnum } from '../../../type';
+import { getTaskUser } from '../../../redux/slice/connectSocial';
+import { AppButton } from '../../../component/button';
+
 const SocialTask: React.FC = () => {
+  const [user, setUser] = useState("");
+  const { callApi, data, loading } = useApi(HomeAPI.getUserByAddress);
+  const {} = useApi(HomeAPI.createUser)
+  useEffect(() => {
+    const userData = {
+      address: "huyl",
+    }
+
+    callApi(userData.address); 
+  }, []); 
+
+  useEffect(() => {
+    if (!loading && data) {
+      if (data.success) {
+        setUser(data.msg.address)
+      } else {
+        console.log('Khong co user');
+      }
+    }
+  }, [data, loading])
+    
+  
+  
+  const dispatch = useAppDispatch();
+  const loginSocial = async () => {
+    try {
+      const rq = await HomeAPI.loginSocial({
+        address: "huan15",
+        typeSocial: SocialEnum.TWITTER,
+      });
+      if (rq?.success) {
+        dispatch(getTaskUser("huan15"));
+        setUser("huan15"); // Cập nhật trạng thái user
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
  
+
   return (
     <Nav className='relative'>
       <div className='absolute flex flex-col right-0 pt-12'>
@@ -36,9 +83,15 @@ const SocialTask: React.FC = () => {
   <p className='text-blue-600 underline'>
     <a href="">Learn More</a>
   </p>
-  <button className="w-[235px] h-[40px] p-[8px-32px-8px-32px] mt-[15px] text-white rounded-[100px] bg-custom-orange">
-    Connect your X account
-  </button>
+  <AppButton 
+  className="w-[235px] h-[40px] p-[8px-32px-8px-32px] mt-[15px] text-white rounded-[100px] bg-custom-orange"
+  onClick={() => {
+    loginSocial();
+  }}
+  disabled={!!user}
+>
+  {!user ? 'Connect your X account' : user}
+</AppButton>
 </div>
       </div>
     </div>
@@ -82,30 +135,32 @@ const SocialTask: React.FC = () => {
   <div className=" flex gap-[24px] mx-auto">
   <div className=' border-2 flex flex-col w-[320px] h-[276px] border-custom-pink rounded-[30px] overflow-hidden bg-white'>
 
-    <TaskCard
-     additionalIcons1={[ 
-      <div className="relative">
-        <div className=" absolute flex flex-col ml-[190px]">
-          <div className='flex'>
-            <img src={bongro} alt="" />
-          <img  src={foot} alt="Foot" />
-          </div>         
-              <div>
-                 <img className='ml-16' src={heart} alt="" />
-                </div>                           
+  <TaskCard
+  additionalIcons1={[
+    <div className="relative" key="additional-icons">
+      <div className="absolute flex flex-col ml-[190px]">
+        <div className='flex'>
+          <img src={bongro} alt="" />
+          <img src={foot} alt="Foot" />
+        </div>
+        <div>
+          <img className='ml-16' src={heart} alt="" />
         </div>
       </div>
-    ]}
-
-  icon={<FaXTwitter className="text-white bg-black border rounded-full w-[62.54px] h-[60px] mt-[30px] ml-[30px]" />}
+    </div>
+  ]}
+  icon={
+    <FaXTwitter className="text-white bg-black border rounded-full w-[62.54px] h-[60px] mt-[30px] ml-[30px]" />
+  }
   title="Follow Tapos X"
   description="Follow Tapos X to earn Points"
   points={20}
-  actionText="Follow"
- 
- 
+  actionText= "follow"
+  isUserConnected={!!user}
 />
-    </div>
+</div>
+
+
 
     <div className='border-2 flex flex-c w-[320px] h-[276px] border-custom-pink rounded-[30px] overflow-hidden bg-white'>
 
@@ -129,6 +184,7 @@ const SocialTask: React.FC = () => {
   description="Follow Tapos X to earn Points"
   points={20}
   actionText="Follow"
+  isUserConnected={!!user}
   />
     </div>
 
@@ -155,6 +211,7 @@ const SocialTask: React.FC = () => {
   description="Follow Tapos X to earn Points"
   points={20}
   actionText="Follow"
+  isUserConnected={!!user}
   />
     </div>
 </div>

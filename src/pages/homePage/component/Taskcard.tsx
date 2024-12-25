@@ -1,5 +1,6 @@
-import React from "react";
+
 import Tim from '../../../assets/tim.svg'
+
 interface TaskCardProps {
   icon: React.ReactNode;
   title: string;
@@ -7,10 +8,11 @@ interface TaskCardProps {
   points: number;
   actionText: string;
   additionalIcons1: React.ReactNode[];
- 
+  isUserConnected: boolean;
 }
 
-const TaskCard: React.FC<TaskCardProps> = ({ icon, title, description, points, actionText, additionalIcons1 }) => {
+const TaskCard: React.FC<TaskCardProps> = ({ icon, title, description, points, actionText, additionalIcons1, isUserConnected }) => {
+
   return (
     <div className="">
      
@@ -35,7 +37,8 @@ const TaskCard: React.FC<TaskCardProps> = ({ icon, title, description, points, a
             <span className="text-custom-orange">+{points}</span>
             <img className="ml-1" src={Tim} alt="" />
           </div>
-          <button className="w-[143px] h-[40px] border-[1px] border-custom-button text-custom-button rounded-[100px] ">
+          <button
+           className={`rounded-[100px] ${isUserConnected ? 'w-[143px] h-[40px] border-[1px] border-custom-orange text-custom-orange rounded-[100px]' : 'w-[143px] h-[40px] border-[1px] border-custom-button text-custom-button rounded-[100px]'}` }>
             {actionText}
           </button>
         </div>

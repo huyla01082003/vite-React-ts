@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import modalReducer from '../slice/Modal'
+import socialReducer from '../slice/connectSocial'
 // ...
 
 const store = configureStore({
   reducer: {
     counter: modalReducer,
+    social: socialReducer,
   },
 })
 
