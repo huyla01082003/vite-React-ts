@@ -1,21 +1,27 @@
 import SocialTask from "./component/SocialTask";
 import ReferralCampaign from "./component/ReferralCampaign";
 import Footer from "./component/Footer";
-
+import { Slider } from "./component/Slider";
+import useApi from "../../hooks/useApi";
+import { HomeAPI } from "../../services/homeService";
+import { useEffect } from "react";
   export const HomePage = () => {
-    return(
+    const { callApi, data, loading } = useApi(HomeAPI.getUserByAddress);
+    useEffect(() => {
+      callApi("string");
+    }, []);
+    console.log(data, loading, "TESTB");
 
-        <>
-        <div className="w-full h-full bg-custom-bg">
-             <div className="w-[1008px] h-[2006px] top-[158px] ml-[216px] gap-[8px] flex flex-col bg-fontFamily-roboto ">
+    return(
+         <div className="text-fontFamily-roboto-0">
+
+        <>      
         <SocialTask/>
-        <ReferralCampaign/> 
-        </div>
-        <Footer/> 
-        </div>
-       
-        
+        <Slider/>
+        <ReferralCampaign/>      
+        <Footer/>        
         </>
+         </div>
     )
 }
 export default HomePage

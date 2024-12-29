@@ -29,7 +29,7 @@ const ReferralCampaign: React.FC = () => {
   };
 
   return (
-    <div className=" container mx-auto h-[1649px] flex flex-col gap-[60px] pt-[80px] flex-grow">
+    <div className=" relative max-w-[1008px] mx-auto pt-[100px]">
 
       <div className='text-center'>
       <h1 className="text-3xl font-bold text-center mb-6 text-[40px]">Referral Campaign</h1>

@@ -29,7 +29,7 @@ export const HomeAPI = {
   },
   getVerifySocial: async (address: string) => {
     const response = await request.get(
-      `/api/v1/user/social?address=${address}`
+      `https://betrasua.onrender.com/api/v1/user/social?address=${address}`
     );
     return response.data;
   },
@@ -38,7 +38,7 @@ export const HomeAPI = {
     return response.data;
   },
   verifySocial: async (data: IBodyLoginSocial) => {
-    const response = await request.post(`/api/v1/user/verifySocial`, data);
+    const response = await request.post(`https://betrasua.onrender.com/api/v1/user/verifySocial`, data);
     return response.data;
   },
 };
